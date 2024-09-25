@@ -36,7 +36,7 @@ class BedwarsCommand extends minecraftCommand {
         this.send(
           `/gc [${level}✫] ${player.nickname} FK: ${formatNumber(finalKills)} FKDR: ${finalKDRatio} W: ${formatNumber(
             wins,
-          )} WLR: ${WLRatio} BB: ${formatNumber(broken)} BLR: ${BLRatio} WS: ${winstreak} I: ${index}`,
+          )} WLR: ${WLRatio} BB: ${formatNumber(broken)} BLR: ${BLRatio} WS: ${winstreak} I: ${formatNumber(index)}`,
         );
       } else if (mode !== undefined) {
         const { level } = player.stats.bedwars;
@@ -49,7 +49,7 @@ class BedwarsCommand extends minecraftCommand {
             finalKills,
           )} FKDR: ${finalKDRatio} Wins: ${formatNumber(wins)} WLR: ${WLRatio} BB: ${formatNumber(
             broken,
-          )} BLR: ${BLRatio} WS: ${winstreak} I: ${index}`,
+          )} BLR: ${BLRatio} WS: ${winstreak} I: ${formatNumber(index)}`,
         );
       } else {
         this.send("/gc Invalid mode. Valid modes: overall, solo, doubles, threes, fours, 4v4");
