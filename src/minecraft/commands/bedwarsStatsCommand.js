@@ -31,7 +31,7 @@ class BedwarsCommand extends minecraftCommand {
       if (["overall", "all"].includes(mode)) {
         const { level, finalKills, finalKDRatio, wins, WLRatio, winstreak } = player.stats.bedwars;
         const { broken, BLRatio } = player.stats.bedwars.beds;
-        var { index } = finalKDRatio * finalKDRatio * level;
+        const { index } = finalKDRatio * finalKDRatio * level;
 
         this.send(
           `/gc [${level}✫] ${player.nickname} F: ${formatNumber(finalKills)} FKDR: ${finalKDRatio} W: ${formatNumber(
@@ -42,7 +42,7 @@ class BedwarsCommand extends minecraftCommand {
         const { level } = player.stats.bedwars;
         const { finalKills, finalKDRatio, wins, WLRatio, winstreak } = player.stats.bedwars[mode];
         const { broken, BLRatio } = player.stats.bedwars[mode].beds;
-        var { index } = finalKDRatio * finalKDRatio * level;
+        const { index } = finalKDRatio * finalKDRatio * level;
 
         this.send(
           `/gc [${level}✫] ${player.nickname} ${capitalize(mode)} F: ${formatNumber(
