@@ -44,7 +44,7 @@ class BedwarsCommand extends minecraftCommand {
         const { index } = finalKDRatio * finalKDRatio * level
 
         this.send(
-          `/gc [${level}✫] ${player.nickname} ${capitalize(mode)} FK: ${formatNumber(
+          `/gc [${level}✫] ${player.nickname} ${capitalize(mode)} F: ${formatNumber(
             finalKills,
           )} FKDR: ${finalKDRatio} Wins: ${formatNumber(wins)} WLR: ${WLRatio} BB: ${formatNumber(
             broken,
