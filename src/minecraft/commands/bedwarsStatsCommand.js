@@ -41,13 +41,14 @@ class BedwarsCommand extends minecraftCommand {
         const { level } = player.stats.bedwars;
         const { finalKills, finalKDRatio, wins, WLRatio, winstreak } = player.stats.bedwars[mode];
         const { broken, BLRatio } = player.stats.bedwars[mode].beds;
+        const { index } = finalKDRatio * finalKDRatio * level
 
         this.send(
           `/gc [${level}✫] ${player.nickname} ${capitalize(mode)} FK: ${formatNumber(
             finalKills,
           )} FKDR: ${finalKDRatio} Wins: ${formatNumber(wins)} WLR: ${WLRatio} BB: ${formatNumber(
             broken,
-          )} BLR: ${BLRatio} WS: ${winstreak}`,
+          )} BLR: ${BLRatio} WS: ${winstreak} I: ${index}`,
         );
       } else {
         this.send("/gc Invalid mode. Valid modes: overall, solo, doubles, threes, fours, 4v4");
