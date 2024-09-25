@@ -25,9 +25,18 @@ If you found this project helpful or interesting, please consider giving it a st
 
 ### Setup Guide for NodeJS
 
-To get started, clone down the repository using:
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    source ~/.bashrc
+    nvm install 19.7.0
 
-    git clone https://github.com/DuckySoLucky/hypixel-discord-chat-bridge.git
+Install NodeJS
+
+    sudo apt update
+    sudo apt install nodejs
+
+Clone down the repository using:
+
+    git clone https://github.com/tocsikc/hypixel-discord-chat-bridge.git
 
 Next go into the `hypixel-discord-chat-bridge` folder and install all the dependencies using NPM.
 
