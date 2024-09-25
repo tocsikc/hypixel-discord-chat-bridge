@@ -34,7 +34,7 @@ class BedwarsCommand extends minecraftCommand {
         const { index } = finalKDRatio * finalKDRatio * level;
 
         this.send(
-          `/gc [${level}✫] ${player.nickname} FK: ${formatNumber(finalKills)} FKDR: ${finalKDRatio} W: ${formatNumber(
+          `/gc [${level}✫] ${player.nickname} F: ${formatNumber(finalKills)} FKDR: ${finalKDRatio} W: ${formatNumber(
             wins,
           )} WLR: ${WLRatio} BB: ${formatNumber(broken)} BLR: ${BLRatio} WS: ${winstreak} I: ${formatNumber(index)}`,
         );
