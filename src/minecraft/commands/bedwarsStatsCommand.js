@@ -31,25 +31,23 @@ class BedwarsCommand extends minecraftCommand {
       if (["overall", "all"].includes(mode)) {
         const { level, finalKills, finalKDRatio, wins, WLRatio, winstreak } = player.stats.bedwars;
         const { broken, BLRatio } = player.stats.bedwars.beds;
-        const { index } = finalKDRatio * finalKDRatio * level;
 
         this.send(
           `/gc [${level}✫] ${player.nickname} F: ${formatNumber(finalKills)} FKDR: ${finalKDRatio} W: ${formatNumber(
             wins,
-          )} WLR: ${WLRatio} BB: ${formatNumber(broken)} BLR: ${BLRatio} WS: ${winstreak} I: ${formatNumber(index)}`,
+          )} WLR: ${WLRatio} BB: ${formatNumber(broken)} BLR: ${BLRatio} WS: ${winstreak} I: ${formatNumber(finalKDRatio * finalKDRatio * level)}`,
         );
       } else if (mode !== undefined) {
         const { level } = player.stats.bedwars;
         const { finalKills, finalKDRatio, wins, WLRatio, winstreak } = player.stats.bedwars[mode];
         const { broken, BLRatio } = player.stats.bedwars[mode].beds;
-        const { index } = finalKDRatio * finalKDRatio * level;
 
         this.send(
           `/gc [${level}✫] ${player.nickname} ${capitalize(mode)} F: ${formatNumber(
             finalKills,
           )} FKDR: ${finalKDRatio} Wins: ${formatNumber(wins)} WLR: ${WLRatio} BB: ${formatNumber(
             broken,
-          )} BLR: ${BLRatio} WS: ${winstreak} I: ${formatNumber(index)}`,
+          )} BLR: ${BLRatio} WS: ${winstreak} I: ${formatNumber(finalKDRatio * finalKDRatio * level)}`,
         );
       } else {
         this.send("/gc Invalid mode. Valid modes: overall, solo, doubles, threes, fours, 4v4");
