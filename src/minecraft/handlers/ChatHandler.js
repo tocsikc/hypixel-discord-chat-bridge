@@ -222,7 +222,7 @@ class StateHandler extends eventHandler {
             )
             .setThumbnail(`https://www.mc-heads.net/avatar/${player.nickname}`)
             .setFooter({
-              text: `by @duckysolucky | /help [command] for more information`,
+              text: `/help [command] for more information`,
               iconURL: "https://imgur.com/tgwQJTX.png",
             });
 
@@ -266,7 +266,7 @@ class StateHandler extends eventHandler {
       bot.chat(
         `/gc ${replaceVariables(messages.guildJoinMessage, {
           prefix: config.minecraft.bot.prefix,
-        })} | by @duckysolucky`,
+        })} `,
       );
       await this.updateUser(username);
       return [
