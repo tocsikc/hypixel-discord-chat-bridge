@@ -33,8 +33,10 @@ class BedwarsCommand extends minecraftCommand {
         const { broken, BLRatio } = player.stats.bedwars.beds;
 
         this.send(
-          `/gc [${level}✫] ${player.nickname} WLR: ${WLRatio} FKDR: ${finalKDRatio} BLR: ${BLRatio,
-            } W: ${formatNumber(wins)} F: ${formatNumber(finalKills)} BB: ${formatNumber(broken,
+          `/gc [${level}✫] ${player.nickname} WLR: ${WLRatio} FKDR: ${finalKDRatio} BLR: ${
+            BLRatio,
+            } W: ${formatNumber(wins)} F: ${formatNumber(finalKills)} BB: ${formatNumber(
+            broken,
             )} WS: ${winstreak} I: ${formatNumber(finalKDRatio * finalKDRatio * level)}`,
         );
       } else if (mode !== undefined) {
@@ -43,8 +45,10 @@ class BedwarsCommand extends minecraftCommand {
         const { broken, BLRatio } = player.stats.bedwars[mode].beds;
 
         this.send(
-          `/gc [${level}✫] ${player.nickname} ${capitalize(mode)} WLR: ${WLRatio} FKDR: ${finalKDRatio} BLR: ${BLRatio,
-            } W: ${formatNumber(wins)} F: ${formatNumber(finalKills)} BB: ${formatNumber(broken,
+          `/gc [${level}✫] ${player.nickname} ${capitalize(mode)} WLR: ${WLRatio} FKDR: ${finalKDRatio} BLR: ${
+            BLRatio,
+            } W: ${formatNumber(wins)} F: ${formatNumber(finalKills)} BB: ${formatNumber(
+            broken,
             )} WS: ${winstreak} I: ${formatNumber(finalKDRatio * finalKDRatio * level)}`,
         );
       } else {
