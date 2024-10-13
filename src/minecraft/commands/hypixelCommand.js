@@ -21,8 +21,8 @@ class hypixelCommand extends minecraftCommand {
   async onCommand(username, message) {
     try {
       username = this.getArgs(message)[0] || username;
-      const player = await hypixel.getPlayer(username);
       
+      const player = await hypixel.getPlayer(username);
       const level = player.level;
       const guild = player.guild;
       const rank = player.rank;
