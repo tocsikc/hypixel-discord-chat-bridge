@@ -47,4 +47,4 @@ class hypixelCommand extends minecraftCommand {
   }
 }
 
-module.exports = BedwarsCommand;
+module.exports = hypixelCommand;
