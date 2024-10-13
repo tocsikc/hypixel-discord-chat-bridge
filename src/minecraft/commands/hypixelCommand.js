@@ -26,11 +26,11 @@ class hypixelCommand extends minecraftCommand {
       const level = player.level;
       const guild = player.guild;
       const rank = player.rank;
-      const firstLogin = player.firstLogin;
+      const firstLogin = player.firstLogin.split();
       const achievementPoints = player.achievementPoints;
 
       this.send(
-        `/gc [${rank}] ${player.nickname} Level: ${level} Guild: ${guild} AP: ${achievementPoints} First Join: ${firstLogin}`,
+        `/gc [${rank}] ${player.nickname} Level: ${level} Guild: ${guild} AP: ${achievementPoints} First Join: ${firstLogin[0], firstLogin[1], firstLogin[2], firstLogin[3], }`,
       )
 
     } catch (error) {
