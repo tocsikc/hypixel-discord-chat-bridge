@@ -21,7 +21,7 @@ class hypixelCommand extends minecraftCommand {
   async onCommand(username, message) {
     try {
       const msg = this.getArgs(message).map((arg) => arg.replaceAll("/", ""));
-      username = modes.includes(msg[0]) ? msg[1] : msg[0] || username;
+      username = this.getArgs(message)[0] || username;
 
       const { level } = player.level;
       const { guild } = player.guild;
