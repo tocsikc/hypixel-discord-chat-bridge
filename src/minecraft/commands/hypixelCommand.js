@@ -24,7 +24,7 @@ class hypixelCommand extends minecraftCommand {
       
       const player = await hypixel.getPlayer(username);
       const level = player.level;
-      const guild = await hypixel.getGuild("player", String(player));
+      const guild = await hypixel.getGuild("player", username);
       const rank = player.rank;
       const firstLogin = player.firstLogin.split();
       const achievementPoints = player.achievementPoints;
