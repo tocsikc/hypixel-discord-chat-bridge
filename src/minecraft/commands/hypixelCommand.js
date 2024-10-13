@@ -22,7 +22,7 @@ class hypixelCommand extends minecraftCommand {
     try {
       username = this.getArgs(message)[0] || username;
       
-      const player = await hypixel.getPlayer(username);
+      const String(player) = await hypixel.getPlayer(username);
       const level = player.level;
       const guild = await hypixel.getGuild("player", player);
       const rank = player.rank;
