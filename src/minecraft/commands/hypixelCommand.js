@@ -20,19 +20,16 @@ class hypixelCommand extends minecraftCommand {
 
   async onCommand(username, message) {
     try {
-      const msg = this.getArgs(message).map((arg) => arg.replaceAll("/", ""));
       username = this.getArgs(message)[0] || username;
 
-      const { level } = player.level;
-      const { guild } = player.guild;
-      const { rank } = player.rank;
-      const { firstLogin } = player.firstLogin;
-      const { achievementPoints } = player.achievementPoints;
-
-
+      const level  = player.level;
+      const guild  = player.guild;
+      const rank = player.rank;
+      const firstLogin  = player.firstLogin;
+      const achievementPoints  = player.achievementPoints;
 
       this.send(
-        `/gc [${rank}] ${ player.nickname } Level: ${ level } Guild: ${ guild } AP: ${ achievementPoints } First Join: ${ firstLogin }`,
+        `/gc [${rank}] ${player.nickname} Level: ${level} Guild: ${guild} AP: ${achievementPoints} First Join: ${firstLogin}`,
     )
 
     } catch (error) {
