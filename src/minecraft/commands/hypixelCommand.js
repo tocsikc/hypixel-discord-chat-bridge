@@ -25,10 +25,10 @@ class hypixelCommand extends minecraftCommand {
       const [ player, guild ] = await Promise.all([hypixel.getPlayer(username), hypixel.getGuild("player", username)]);
       const { level, rank, achievementPoints } = player;
       var firstLogin = player;
-      var firstLogin = firstLogin.split(" ")
+      var firstLogin = firstLogin.split(" ");
       
       this.send(
-        `/gc [${rank}] ${player.nickname} Level: ${level} AP: ${achievementPoints} First Join: ${firstLogin[0]} ${firstLogin[1]} ${firstLogin[2]} ${firstLogin[3]}`,
+        `/gc [${rank}] ${player.nickname} Level: ${level} Guild ${guild} AP: ${achievementPoints} First Join: ${firstLogin[0]} ${firstLogin[1]} ${firstLogin[2]} ${firstLogin[3]}`,
       );
 
     } catch (error) {
