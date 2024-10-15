@@ -25,6 +25,7 @@ class checkCommand extends minecraftCommand {
       const player = await hypixel.getPlayer(username);
 
       const hypixel_level = player.level;
+      const rank = player;
       const { level, finalKDRatio, wins } = player.stats.bedwars;
       
       if ( (level >= 75 && (wins >= 500 || (finalKDRatio * finalKDRatio * level) >= 500)) || (wins >= 500 && (finalKDRatio * finalKDRatio * level) >= 500) ) {
