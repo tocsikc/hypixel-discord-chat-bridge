@@ -29,7 +29,8 @@ class hypixelCommand extends minecraftCommand {
       console.log("hi ander2")
       const { level, rank, achievementPoints } = player;
       console.log("hi ander3")
-      var firstLogin = player.split(" ");
+      var firstLogin = player;
+      console.log(firstLogin)
       console.log("hi ander4")
       
       this.send(
