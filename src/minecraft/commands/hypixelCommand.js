@@ -22,6 +22,8 @@ class hypixelCommand extends minecraftCommand {
     try {
       console.log("hi ander")
       username = this.getArgs(message)[0] || username;
+      console.log(username)
+      console.log(this.getArgs(message)[0])
       
       const [ player, guild ] = await Promise.all([hypixel.getPlayer(username), hypixel.getGuild("player", username)]);
       console.log("hi ander2")
