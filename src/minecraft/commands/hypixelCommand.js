@@ -4,6 +4,7 @@ const hypixel = require("../../contracts/API/HypixelRebornAPI.js");
 
 class hypixelCommand extends minecraftCommand {
   constructor(minecraft) {
+    console.log("big ander")
     super(minecraft);
 
     this.name = "general";
