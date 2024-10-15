@@ -22,10 +22,10 @@ class hypixelCommand extends minecraftCommand {
     try {
       username = this.getArgs(message)[0] || username;
       
-      const player = await hypixel.getPlayer(username);
-      const guild = player.guild.name;
-      const { level, rank, firstLogin, achievementPoints } = player;
-      firstLogin = firstLogin.split(" ")
+      const [ player, guild ] = await Promise.all([hypixel.getPlayer(username), hypixel.getGuild("player", username)]);
+      const { level, rank, achievementPoints } = player;
+      var firstLogin = player;
+      var firstLogin = firstLogin.split(" ")
       
       this.send(
         `/gc [${rank}] ${player.nickname} Level: ${level} AP: ${achievementPoints} First Join: ${firstLogin[0]} ${firstLogin[1]} ${firstLogin[2]} ${firstLogin[3]}`,
