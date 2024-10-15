@@ -29,10 +29,8 @@ class hypixelCommand extends minecraftCommand {
       console.log("hi ander2")
       const { level, rank, achievementPoints } = player;
       console.log("hi ander3")
-      var firstLogin = player;
+      var firstLogin = player.split(" ");
       console.log("hi ander4")
-      var firstLogin = firstLogin.split(" ");
-      console.log("hi ande5r")
       
       this.send(
         `/gc [${rank}] ${player.nickname} Level: ${level} Guild ${guild} AP: ${achievementPoints} First Join: ${firstLogin[0]} ${firstLogin[1]} ${firstLogin[2]} ${firstLogin[3]}`,
