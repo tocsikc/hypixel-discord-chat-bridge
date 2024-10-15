@@ -6,8 +6,8 @@ class hypixelCommand extends minecraftCommand {
   constructor(minecraft) {
     super(minecraft);
 
-    this.name = "hypixel";
-    this.aliases = ["general"];
+    this.name = "general";
+    this.aliases = ["hypixel"];
     this.description = "Hypixel stats of specified user.";
     this.options = [
       {
