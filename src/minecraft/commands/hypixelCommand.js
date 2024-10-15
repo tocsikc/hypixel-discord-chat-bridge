@@ -31,6 +31,8 @@ class hypixelCommand extends minecraftCommand {
       console.log("hi ander3")
       var firstLogin = player.firstLogin;
       console.log(firstLogin)
+      var firstLogin = firstLogin.split("T");
+      console.log(firstLogin)
       console.log("hi ander4")
       
       this.send(
