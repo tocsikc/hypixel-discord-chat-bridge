@@ -4,7 +4,6 @@ const hypixel = require("../../contracts/API/HypixelRebornAPI.js");
 
 class hypixelCommand extends minecraftCommand {
   constructor(minecraft) {
-    console.log("big ander")
     super(minecraft);
 
     this.name = "general";
@@ -21,6 +20,7 @@ class hypixelCommand extends minecraftCommand {
 
   async onCommand(username, message) {
     try {
+      console.log("hi ander")
       username = this.getArgs(message)[0] || username;
       
       const [ player, guild ] = await Promise.all([hypixel.getPlayer(username), hypixel.getGuild("player", username)]);
@@ -34,6 +34,7 @@ class hypixelCommand extends minecraftCommand {
 
     } catch (error) {
       this.send(
+        console.log("bye ander")
         `/gc ${error
           .toString()
           .replace("[hypixel-api-reborn] ", "")
