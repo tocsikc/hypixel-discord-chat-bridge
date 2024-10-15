@@ -29,16 +29,16 @@ class checkCommand extends minecraftCommand {
       const { level, finalKDRatio, wins } = player.stats.bedwars;
       
       if ( (level >= 75 && (wins >= 500 || (finalKDRatio * finalKDRatio * level) >= 500)) || (wins >= 500 && (finalKDRatio * finalKDRatio * level) >= 500) ) {
-        var check = "Allowed"
+        var check = "is Allowed"
       
       } else if ( (finalKDRatio * finalKDRatio * level) >= 3000 ) {
-        var check = "Allowed if Alt"
+        var check = "is Allowed if Alt"
       } else {
-        var check = "Not allowed"
+        var check = "is Not allowed"
       }
 
       this.send(
-            `/gc [${rank}] ${player.nickname} Check: ${check} Level: ${hypixel_level} | BW [${level}✫] FKDR: ${finalKDRatio} W: ${formatNumber(
+            `/gc [${rank}] ${player.nickname} ${check} | Level: ${Math.floor(hypixel_level)} | [${level}✫] FKDR: ${finalKDRatio} W: ${formatNumber(
                 wins,
             )} I: ${formatNumber(finalKDRatio * finalKDRatio * level)}`,
           );
