@@ -29,7 +29,7 @@ class hypixelCommand extends minecraftCommand {
       
       this.send(
         `/gc [${rank}] ${player.nickname} Level: ${level} AP: ${achievementPoints} First Join: ${firstLogin[0]} ${firstLogin[1]} ${firstLogin[2]} ${firstLogin[3]}`,
-      )
+      );
 
     } catch (error) {
       this.send(
