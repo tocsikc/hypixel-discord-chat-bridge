@@ -38,7 +38,7 @@ class checkCommand extends minecraftCommand {
       }
 
       this.send(
-            `/gc [${rank}] ${player.nickname} Check: ${check} Level: ${hypixel_level} BW Star: ${level} FKDR: ${finalKDRatio} W: ${formatNumber(
+            `/gc [${rank}] ${player.nickname} Check: ${check} Level: ${hypixel_level} | BW [${level}✫] FKDR: ${finalKDRatio} W: ${formatNumber(
                 wins,
             )} I: ${formatNumber(finalKDRatio * finalKDRatio * level)}`,
           );
