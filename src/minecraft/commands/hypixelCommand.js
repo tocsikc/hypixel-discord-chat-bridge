@@ -41,7 +41,7 @@ class hypixelCommand extends minecraftCommand {
       console.log("hi ander76")
 
     } catch (error) {
-      console.log("bye ander")
+      console.log(error)
       this.send(
         `/gc ${error
           .toString()
