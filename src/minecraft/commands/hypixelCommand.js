@@ -20,23 +20,15 @@ class hypixelCommand extends minecraftCommand {
 
   async onCommand(username, message) {
     try {
-      console.log("hi ander")
       username = this.getArgs(message)[0] || username;
-      console.log(username)
-      console.log(this.getArgs(message)[0])
       
       const [ player, guild ] = await Promise.all([hypixel.getPlayer(username), hypixel.getGuild("player", username)]);
-      console.log("hi ander2")
       const { level, rank, achievementPoints } = player;
-      console.log("hi ander3")
       var firstLogin = player.firstLogin.toString().split(" ");
-      console.log(firstLogin)
-      console.log("hi ander4")
       
       this.send(
         `/gc [${rank}] ${player.nickname} Level: ${level} Guild: ${guild} AP: ${achievementPoints} First Join: ${firstLogin[0]} ${firstLogin[1]} ${firstLogin[2]} ${firstLogin[3]}`,
       );
-      console.log("hi ander76")
 
     } catch (error) {
       console.log(error)
