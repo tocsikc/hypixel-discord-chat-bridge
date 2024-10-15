@@ -33,8 +33,8 @@ class hypixelCommand extends minecraftCommand {
       );
 
     } catch (error) {
+      console.log("bye ander")
       this.send(
-        console.log("bye ander")
         `/gc ${error
           .toString()
           .replace("[hypixel-api-reborn] ", "")
