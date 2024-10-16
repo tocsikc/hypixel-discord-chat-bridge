@@ -28,7 +28,7 @@ class checkCommand extends minecraftCommand {
       const rank = player.rank;
       const { level, finalKDRatio, wins } = player.stats.bedwars;
       
-      if ( (level >= 75 && (wins >= 500 || (finalKDRatio * finalKDRatio * level) >= 500)) || (wins >= 500 && (finalKDRatio * finalKDRatio * level) >= 500) ) {
+      if ( (hypixel_level >= 75 && (wins >= 500 || (finalKDRatio * finalKDRatio * level) >= 500)) || (wins >= 500 && (finalKDRatio * finalKDRatio * level) >= 500) ) {
         var check = "is Allowed"
       
       } else if ( (finalKDRatio * finalKDRatio * level) >= 3000 ) {
