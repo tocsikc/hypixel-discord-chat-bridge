@@ -29,20 +29,18 @@ class BlitzSGCommand extends minecraftCommand {
       const player = await hypixel.getPlayer(username);
 
       if (["overall", "all"].includes(mode)) {
-        const { rank } = player.rank;
         const { kit, kills, wins, KDRatio, WLRatio } = player.stats.blitzsg;
 
         this.send(
-          `/gc [${rank}] ${player.nickname} Kit: ${kit} WLR: ${WLRatio} KDR: ${KDRatio} Wins: ${formatNumber(
+          `/gc ${player.nickname} Kit: ${kit} WLR: ${WLRatio} KDR: ${KDRatio} Wins: ${formatNumber(
             wins,   
             )} Kills: ${formatNumber(kills)}`,
         );
       } else if (mode !== undefined) {
-        const { rank } = player.rank;
         const { kit, kills, wins, KDRatio, WLRatio } = player.stats.blitzsg[mode];
 
         this.send(
-          `/gc [${rank}] ${player.nickname} ${capitalize(mode)} Kit: ${kit} WLR: ${WLRatio} KDR: ${KDRatio} Wins: ${formatNumber(
+          `/gc ${player.nickname} ${capitalize(mode)} Kit: ${kit} WLR: ${WLRatio} KDR: ${KDRatio} Wins: ${formatNumber(
             wins,
             )} Kills: ${formatNumber(kills)}`,
         );
