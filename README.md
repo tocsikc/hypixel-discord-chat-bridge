@@ -40,6 +40,7 @@ Clone down the repository using:
 
 Next go into the `hypixel-discord-chat-bridge` folder and install all the dependencies using NPM.
 
+    cd hypixel-discord-chat-bridge
     npm install
 
 While the dependencies are being installed you can edit the configuration file. The configuration file is called `config.example.json`. It is pretty self explanatory, but if you need help with it, you can check out the [Configuration](#configuration) section. Once you are done editing, save it as another file by the name of `config.json`. Both files are required for the bot to work.
