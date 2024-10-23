@@ -30,17 +30,25 @@ class BlitzSGCommand extends minecraftCommand {
 
       if (["overall", "all"].includes(mode)) {
         const { kit, kills, wins, KDRatio, WLRatio } = player.stats.blitzsg;
+        if ( kit.toString() = "undefined"  ) {
+            kit = "None" 
+        }
 
         this.send(
-          `/gc ${player.nickname} Kit: ${kit} WLR: ${WLRatio} KDR: ${KDRatio} Wins: ${formatNumber(
+          `/gc ${player.nickname} KDR: ${KDRatio} Wins: ${formatNumber(
             wins,   
             )} Kills: ${formatNumber(kills)}`,
+            
         );
-      } else if (mode !== undefined) {
-        const { kit, kills, wins, KDRatio, WLRatio } = player.stats.blitzsg[mode];
+      } else if (mode != undefined) {
+        var { kit } = player.stats.blitzsg;
+        const { kills, wins, KDRatio, WLRatio } = player.stats.blitzsg[mode];
+        if ( kit.toString() = "undefined"  ) {
+            kit = "None" 
+        }
 
         this.send(
-          `/gc ${player.nickname} ${capitalize(mode)} Kit: ${kit} WLR: ${WLRatio} KDR: ${KDRatio} Wins: ${formatNumber(
+          `/gc ${player.nickname} ${capitalize(mode)} KDR: ${KDRatio} Wins: ${formatNumber(
             wins,
             )} Kills: ${formatNumber(kills)}`,
         );
