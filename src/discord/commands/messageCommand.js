@@ -15,7 +15,7 @@ module.exports = {
     {
         name: "channel",
         description: "Where the bot will send the message.",
-        type: 7,
+        type: 3,
         required: true,
       },
   ],
