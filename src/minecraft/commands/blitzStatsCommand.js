@@ -43,9 +43,6 @@ class BlitzSGCommand extends minecraftCommand {
       } else if (mode != undefined) {
         var { kit } = player.stats.blitzsg;
         const { kills, wins, KDRatio, WLRatio } = player.stats.blitzsg[mode];
-        if ( kit.toString() = "undefined"  ) {
-            kit = "None" 
-        }
 
         this.send(
           `/gc ${player.nickname} ${capitalize(mode)} KDR: ${KDRatio} Wins: ${formatNumber(
