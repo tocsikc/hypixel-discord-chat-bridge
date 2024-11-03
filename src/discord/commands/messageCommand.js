@@ -22,7 +22,8 @@ module.exports = {
 
   execute: async (interaction) => {
     const message = interaction.options.getString("message");
-    const channel = interaction.options.getString("channel")
+    var channel = interaction.options.getString("channel")
+    channel = channel.replace("<#", "").replace(">", "")
     const messageToUser = `Successfully sent the message.`
 
     await interaction.followUp({ content: messageToUser, ephemeral: true});
