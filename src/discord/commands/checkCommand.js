@@ -47,9 +47,11 @@ module.exports = {
             { name: 'FKDR', value: finalKDRatio, inline: true },
             { name: 'Index', value: formatNumber(finalKDRatio * finalKDRatio * level), inline: true },
             { name: 'First Login', value: '<t:' + firstLoginTimestamp + ':f>' },
+          );
 
-            
-          )
+        await interaction.followUp({
+            embeds: [embed],
+        });
         
     } catch (error) {
         const embed = new Embed()
@@ -59,8 +61,11 @@ module.exports = {
             .replace("[hypixel-api-reborn] ", "")
             .replace("For help join our Discord Server https://discord.gg/NSEBNMM", "")
             .replace("Error:", "")}`,
-        )
-      }
+          );
+        await interaction.followUp({
+            embeds: [embed],
+        });
+      };
 
 
     await interaction.followUp({
