@@ -1,4 +1,4 @@
-const { checkEmbed } = require("../../contracts/embedHandler.js");
+const { Embed } = require("../../contracts/embedHandler.js");
 
 const hypixel = require("../../contracts/API/HypixelRebornAPI.js");
 const { capitalize, formatNumber } = require("../../contracts/helperFunctions.js");
@@ -36,7 +36,7 @@ module.exports = {
           var check = "<:cross:1292952625536438333> Not Allowed"
         }
         
-        const embed = new checkEmbed()
+        const embed = new Embed()
           .setTitle('[${rank}] ${player.nickname}')
           .setDescription('## Status: ' + check)
           .setThumbnail(`https://mc-heads.net/head/${uuid}`)
@@ -50,16 +50,10 @@ module.exports = {
 
             
           )
-
-        // this.send(
-        //       `/gc [${rank}] ${player.nickname} ${check}. Level: ${Math.floor(hypixel_level)} | [${level}✫] FKDR: ${finalKDRatio} W: ${formatNumber(
-        //           wins,
-        //       )} I: ${formatNumber(finalKDRatio * finalKDRatio * level)}`,
-        //     );
         
     } catch (error) {
-        const embed = new checkEmbed()
-          .setTItle('Error!')
+        const embed = new Embed()
+          .setTitle('Error!')
           .setDescription(`/gc ${error
             .toString()
             .replace("[hypixel-api-reborn] ", "")
