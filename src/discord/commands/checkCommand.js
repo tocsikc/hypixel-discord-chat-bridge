@@ -1,4 +1,4 @@
-const { Embed } = require("../../contracts/embedHandler.js");
+const { EmbedBuilder } = require("../../contracts/embedHandler.js");
 
 const hypixel = require("../../contracts/API/HypixelRebornAPI.js");
 const { capitalize, formatNumber } = require("../../contracts/helperFunctions.js");
@@ -37,7 +37,7 @@ module.exports = {
         }
         
         const embed = new Embed()
-          .setTitle('[${rank}] ${player.nickname}')
+          .setTitle(`[${rank}] ${player.nickname}`)
           .setDescription('## Status: ' + check)
           .setThumbnail(`https://mc-heads.net/head/${uuid}`)
           .addFields(
@@ -54,7 +54,7 @@ module.exports = {
         });
         
     } catch (error) {
-        const embed = new Embed()
+        const errorEmbed = new EmbedBuilder()
           .setTitle('Error!')
           .setDescription(`/gc ${error
             .toString()
@@ -63,13 +63,8 @@ module.exports = {
             .replace("Error:", "")}`,
           );
         await interaction.followUp({
-            embeds: [embed],
+            embeds: [errorEmbed],
         });
       };
-
-
-    await interaction.followUp({
-      embeds: [embed],
-    });
   },
 };
