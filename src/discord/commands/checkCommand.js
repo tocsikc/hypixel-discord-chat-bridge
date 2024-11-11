@@ -56,7 +56,7 @@ module.exports = {
     } catch (error) {
         const errorEmbed = new EmbedBuilder()
           .setTitle('Error!')
-          .setDescription(`/gc ${error
+          .setDescription(`${error
             .toString()
             .replace("[hypixel-api-reborn] ", "")
             .replace("For help join our Discord Server https://discord.gg/NSEBNMM", "")
