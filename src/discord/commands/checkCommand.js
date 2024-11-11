@@ -36,7 +36,7 @@ module.exports = {
           var check = "<:cross:1292952625536438333> Not Allowed"
         }
         
-        const embed = new Embed()
+        const embed = new EmbedBuilder()
           .setTitle(`[${rank}] ${player.nickname}`)
           .setDescription('## Status: ' + check)
           .setThumbnail(`https://mc-heads.net/head/${uuid}`)
