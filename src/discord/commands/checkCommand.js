@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("../../contracts/embedHandler.js");
+const { EmbedBuilder } = require("discord.js");
 
 const hypixel = require("../../contracts/API/HypixelRebornAPI.js");
 const { capitalize, formatNumber } = require("../../contracts/helperFunctions.js");
