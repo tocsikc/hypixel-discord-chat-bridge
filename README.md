@@ -1,4 +1,5 @@
 # Hypixel Discord Chat Bridge
+Made by DuckySoLucky
 
 A two-way chat bridge between [Hypixel](https://hypixel.net/) guild chat and a [Discord](https://discord.com/) channel. The application utilizes [discord.js v14](https://github.com/discordjs/discord.js) for communicating with Discord, and [mineflayer](https://github.com/PrismarineJS/mineflayer) for communicating with Hypixel.
 
