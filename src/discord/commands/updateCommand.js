@@ -78,13 +78,9 @@ module.exports = {
           const rank = config.verification.ranks.find((r) => r.name.toLowerCase() == guildMember.rank.toLowerCase());
 
           if (rank) {
-            for (const role of config.verification.ranks) {
-              if (interaction.member.roles.cache.has(role.role)) {
-                await interaction.member.roles.remove(role.role, "Updated Roles");
-              }
+            if (!interaction.member.roles.cache.has(rank.role)) {
+              await interaction.member.roles.add(rank.role, "Updated Roles");
             }
-
-            await interaction.member.roles.add(rank.role, "Updated Roles");
           }
         }
         
