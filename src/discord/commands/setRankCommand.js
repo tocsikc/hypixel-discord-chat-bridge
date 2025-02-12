@@ -21,6 +21,17 @@ module.exports = {
     execute: async (interaction) => {
         const username = interaction.options.getString("username");
         const rank = interaction.options.getString("rank");
+        const linkedData = readFileSync("data/linked.json");
+        if (linkedData === undefined) {
+          throw new HypixelDiscordChatBridgeError(
+            "The linked data file does not exist. Please contact an administrator.",
+          );
+        }
+
+        const linked = JSON.parse(linkedData);
+        if (linked === undefined) {
+          throw new HypixelDiscordChatBridgeError("The linked data file is malformed. Please contact an administrator.");
+        }
 
         bot.chat(`/g setrank ${username} ${rank}`);
 
