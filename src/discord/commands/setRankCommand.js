@@ -1,6 +1,7 @@
 const HypixelDiscordChatBridgeError = require("../../contracts/errorHandler.js");
 const { getUUID, getUsername } = require("../../contracts/API/mowojangAPI.js");
 const { readFileSync } = require("fs");
+const { SuccessEmbed } = require("../../contracts/embedHandler.js");
 
 module.exports = {
     name: "setrank",
