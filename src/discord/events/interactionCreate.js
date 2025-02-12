@@ -63,7 +63,7 @@ module.exports = {
           `Command: \`${commandName}\`\nOptions: \`${commandOptions}\`\nUser ID: \`${userID}\`\nUser: \`${username}\`\n\`\`\`${errorStack}\`\`\``,
         );
         interaction.client.channels.cache.get(config.discord.channels.loggingChannel).send({
-          content: `<@&${config.discord.commands.commandRole}>`,
+          content: `<@&452005852250112000>`,
           embeds: [errorLog],
         });
       }
