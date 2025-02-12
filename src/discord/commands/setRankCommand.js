@@ -24,7 +24,7 @@ module.exports = {
 
         bot.chat(`/g setrank ${username} ${rank}`);
 
-        const uuid = await getUUID(name);
+        const uuid = await getUUID(username);
         if (uuid !== undefined) {
           const discordID = Object.keys(linked).find((key) => linked[key] === uuid);
           if (discordID !== undefined) {
