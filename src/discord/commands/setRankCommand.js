@@ -22,6 +22,20 @@ module.exports = {
 
         bot.chat(`/g setrank ${username} ${rank}`);
 
+        const uuid = await getUUID(name);
+        if (uuid !== undefined) {
+          const discordID = Object.keys(linked).find((key) => linked[key] === uuid);
+          if (discordID !== undefined) {
+            const user = await guild.members.fetch(discordID);
+            const updateRolesCommand = require("./updateCommand.js");
+            if (updateRolesCommand !== undefined) {
+              await updateRolesCommand.execute(interaction, user);
+            }
+          }
+        }
+
+        
+
         const embed = new SuccessEmbed(`Set \`${username}\`'s guild rank to \`${rank}\`.`);
 
         await interaction.followUp({
