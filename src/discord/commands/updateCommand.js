@@ -70,12 +70,40 @@ module.exports = {
         throw new HypixelDiscordChatBridgeError("Guild not found.");
       }
 
+      level_roles = ["1327132876428410880", "1327132876797513792", "1327132877015482418", "1327132877548425297", "1327132877816725524",
+        "1327132878655459389", "1327132879074889738", "1327132879184068628", "1327132880195027004", "1327132880798748793"
+      ];
+      const level = player.stats.bedwars.level || 0;
+      await interaction.member.roles.remove(level_roles, "Updated Roles");
+      if ( level >= 1000 ) {
+        await interaction.member.roles.add("1327132876428410880", "Updated Roles");
+      } else if ( level >= 900 ) {
+        await interaction.member.roles.add("1327132876797513792", "Updated Roles");
+      } else if ( level >= 800 ) {
+        await interaction.member.roles.add("1327132877015482418", "Updated Roles");
+      } else if ( level >= 700 ) {
+        await interaction.member.roles.add("1327132877548425297", "Updated Roles");
+      } else if ( level >= 600 ) {        
+        await interaction.member.roles.add("1327132877816725524", "Updated Roles");        
+      } else if ( level >= 500 ) {
+        await interaction.member.roles.add("1327132878655459389", "Updated Roles");
+      } else if ( level >= 400 ) {
+        await interaction.member.roles.add("1327132879074889738", "Updated Roles");
+      } else if ( level >= 300 ) {
+        await interaction.member.roles.add("1327132879184068628", "Updated Roles");        
+      } else if ( level >= 200 ) {
+        await interaction.member.roles.add("1327132880195027004", "Updated Roles");
+      } else if ( level >= 100 ) {
+        await interaction.member.roles.add("1327132880798748793", "Updated Roles");
+      }
+
       const guildMember = hypixelGuild.members.find((m) => m.uuid === uuid);
       if (guildMember) {
         await interaction.member.roles.add(config.verification.guildMemberRole, "Updated Roles");
 
         if (config.verification.ranks.length > 0 && guildMember.rank) {
           const rank = config.verification.ranks.find((r) => r.name.toLowerCase() == guildMember.rank.toLowerCase());
+
           if (rank) {
             for (const role of config.verification.ranks) {
               if (interaction.member.roles.cache.has(role.role)) {
@@ -86,6 +114,8 @@ module.exports = {
             await interaction.member.roles.add(rank.role, "Updated Roles");
           }
         }
+        
+        
       } else {
         if (interaction.member.roles.cache.has(config.verification.guildMemberRole)) {
           await interaction.member.roles.remove(config.verification.guildMemberRole, "Updated Roles");
@@ -100,61 +130,9 @@ module.exports = {
         }
       }
 
-      interaction.member.setNickname(
-        replaceVariables(config.verification.name, {
-          bedwarsStar: player.stats.bedwars.level,
-          bedwarsTokens: player.stats.bedwars.tokens,
-          bedwarsKills: player.stats.bedwars.kills,
-          bedwarsDeaths: player.stats.bedwars.deaths,
-          bedwarsKDRatio: player.stats.bedwars.KDRatio,
-          bedwarsFinalKills: player.stats.bedwars.finalKills,
-          bedwarsFinalDeathss: player.stats.bedwars.finalDeaths,
-          bedwarsFinalKDRatio: player.stats.bedwars.finalKDRatio,
-          bedwarsWins: player.stats.bedwars.wins,
-          bedwarsLosses: player.stats.bedwars.losses,
-          bedwarsWLRatio: player.stats.bedwars.WLRatio,
-          bedwarsBedsBroken: player.stats.bedwars.beds.broken,
-          bedwarsBedsLost: player.stats.bedwars.beds.lost,
-          bedwarsBedsBLRatio: player.stats.bedwars.beds.BLRatio,
-          bedwarsPlayedGames: player.stats.bedwars.playedGames,
-
-          skywarsStar: player.stats.skywars.level,
-          skywarsCoins: player.stats.skywars.coins,
-          skywarsTokens: player.stats.skywars.tokens,
-          skywarsSouls: player.stats.skywars.souls,
-          skywarsOpals: player.stats.skywars.opals,
-          skywarsKills: player.stats.skywars.kills,
-          skywarsDeaths: player.stats.skywars.deaths,
-          skywarsKDRatio: player.stats.skywars.KDRatio,
-          skywarsWins: player.stats.skywars.wins,
-          skywarsLosses: player.stats.skywars.losses,
-          skywarsWLRatio: player.stats.skywars.WLRatio,
-          skywarsPlayedGames: player.stats.skywars.playedGames,
-
-          duelsTitle: player.stats?.duels?.division || 0,
-          duelsKills: player.stats?.duels?.kills || 0,
-          duelsDeaths: player.stats?.duels?.deaths || 0,
-          duelsKDRatio: player.stats?.duels?.KDRatio || 0,
-          duelsWins: player.stats?.duels?.wins || 0,
-          duelsLosses: player.stats?.duels?.losses || 0,
-          duelsWLRatio: player.stats?.duels?.WLRatio || 0,
-          duelsPlayedGames: player.stats?.duels?.playedGames || 0,
-
-          level: player.level,
-          rank: player.rank,
-          karma: player.karma,
-          achievementPoints: player.achievementPoints,
-          username: player.nickname,
-
-          guildRank: hypixelGuild.members.find((m) => m.uuid === uuid)?.rank ?? "Unknown",
-          guildName: hypixelGuild.name,
-        }),
-        "Updated Roles",
-      );
-
       const updateRole = new SuccessEmbed(
         `<@${interaction.user.id}>'s roles have been successfully synced with \`${player.nickname ?? "Unknown"}\`!`,
-        { text: `by @kathund. | /help [command] for more information`, iconURL: "https://i.imgur.com/uUuZx2E.png" },
+        { text: `/help [command] for more information`},
       );
 
       await interaction.followUp({ embeds: [updateRole], ephemeral: true });
@@ -164,8 +142,7 @@ module.exports = {
         .setAuthor({ name: "An Error has occurred" })
         .setDescription(`\`\`\`${error}\`\`\``)
         .setFooter({
-          text: `by @kathund. | /help [command] for more information`,
-          iconURL: "https://i.imgur.com/uUuZx2E.png",
+          text: `/help [command] for more information`,
         });
 
       await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });

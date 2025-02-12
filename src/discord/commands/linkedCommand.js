@@ -52,8 +52,7 @@ module.exports = {
 
         const username = await getUsername(uuid);
         const embed = new SuccessEmbed(`<@${user.id}> is linked to \`${username}\` (\`${uuid}\`).`, {
-          text: `by @kathund. | /help [command] for more information`,
-          iconURL: "https://i.imgur.com/uUuZx2E.png",
+          text: `/help [command] for more information`,
         });
         await interaction.followUp({ embeds: [embed], ephemeral: true });
       } else if (!user && name) {
@@ -68,10 +67,8 @@ module.exports = {
         }
 
         const embed = new SuccessEmbed(`\`${name}\` (\`${uuid}\`) is linked to <@${discordID}>.`, {
-          text: `by @kathund. | /help [command] for more information`,
-          iconURL: "https://i.imgur.com/uUuZx2E.png",
+          text: `/help [command] for more information`,
         });
-
         await interaction.followUp({ embeds: [embed], ephemeral: true });
       } else {
         throw new HypixelDiscordChatBridgeError("Please provide a user or a name, not both.");
@@ -82,8 +79,7 @@ module.exports = {
         .setAuthor({ name: "An Error has occurred" })
         .setDescription(`\`\`\`${error}\`\`\``)
         .setFooter({
-          text: `by @kathund. | /help [command] for more information`,
-          iconURL: "https://i.imgur.com/uUuZx2E.png",
+          text: `/help [command] for more information`,
         });
 
       await interaction.editReply({ embeds: [errorEmbed] });
