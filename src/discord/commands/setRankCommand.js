@@ -1,3 +1,5 @@
+const { getUUID, getUsername } = require("../../contracts/API/mowojangAPI.js");
+
 module.exports = {
     name: "setrank",
     description: "Set the rank of a player in the guild.",
