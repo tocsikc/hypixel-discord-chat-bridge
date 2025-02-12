@@ -8,7 +8,7 @@ module.exports = {
 
   execute: async (interaction) => {
     const restartEmbed = new Embed(15548997, "Restarting...", "The bot is restarting. This might take few seconds.", {
-      text: `by @george_filos | /help [command] for more information`,
+      text: `/help [command] for more information`,
     });
 
     interaction.followUp({ embeds: [restartEmbed] });
