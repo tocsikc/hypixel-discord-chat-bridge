@@ -70,33 +70,6 @@ module.exports = {
         throw new HypixelDiscordChatBridgeError("Guild not found.");
       }
 
-      level_roles = ["1327132876428410880", "1327132876797513792", "1327132877015482418", "1327132877548425297", "1327132877816725524",
-        "1327132878655459389", "1327132879074889738", "1327132879184068628", "1327132880195027004", "1327132880798748793"
-      ];
-      const level = player.stats.bedwars.level || 0;
-      await interaction.member.roles.remove(level_roles, "Updated Roles");
-      if ( level >= 1000 ) {
-        await interaction.member.roles.add("1327132876428410880", "Updated Roles");
-      } else if ( level >= 900 ) {
-        await interaction.member.roles.add("1327132876797513792", "Updated Roles");
-      } else if ( level >= 800 ) {
-        await interaction.member.roles.add("1327132877015482418", "Updated Roles");
-      } else if ( level >= 700 ) {
-        await interaction.member.roles.add("1327132877548425297", "Updated Roles");
-      } else if ( level >= 600 ) {        
-        await interaction.member.roles.add("1327132877816725524", "Updated Roles");        
-      } else if ( level >= 500 ) {
-        await interaction.member.roles.add("1327132878655459389", "Updated Roles");
-      } else if ( level >= 400 ) {
-        await interaction.member.roles.add("1327132879074889738", "Updated Roles");
-      } else if ( level >= 300 ) {
-        await interaction.member.roles.add("1327132879184068628", "Updated Roles");        
-      } else if ( level >= 200 ) {
-        await interaction.member.roles.add("1327132880195027004", "Updated Roles");
-      } else if ( level >= 100 ) {
-        await interaction.member.roles.add("1327132880798748793", "Updated Roles");
-      }
-
       const guildMember = hypixelGuild.members.find((m) => m.uuid === uuid);
       if (guildMember) {
         await interaction.member.roles.add(config.verification.guildMemberRole, "Updated Roles");
