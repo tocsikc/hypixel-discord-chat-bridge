@@ -78,9 +78,25 @@ module.exports = {
           const rank = config.verification.ranks.find((r) => r.name.toLowerCase() == guildMember.rank.toLowerCase());
 
           if (rank) {
-            if (!interaction.member.roles.cache.has(rank.role)) {
-              await interaction.member.roles.add(rank.role, "Updated Roles");
+            for (const role of config.verification.ranks) {
+              if ( rank === "Staff" ) {
+                await interaction.member.roles.remove(1043953216087396422, "Updated Roles");
+              } else if ( rank === "Legend") {
+                await interaction.member.roles.remove(1043953216087396422, "Updated Roles");
+                await interaction.member.roles.remove(794186084665393173, "Updated Roles");
+              } else if ( rank === "Active") {
+                await interaction.member.roles.remove(1043953216087396422, "Updated Roles");
+                await interaction.member.roles.remove(794186084665393173, "Updated Roles");
+                await interaction.member.roles.remove(1093570422601175150, "Updated Roles");
+              } else if ( rank === "InteractionOP") {
+                await interaction.member.roles.remove(1043953216087396422, "Updated Roles");
+                await interaction.member.roles.remove(794186084665393173, "Updated Roles");
+                await interaction.member.roles.remove(1093570422601175150, "Updated Roles");
+                await interaction.member.roles.remove(970343938546335817, "Updated Roles");
+              } 
             }
+
+            await interaction.member.roles.add(rank.role, "Updated Roles");
           }
         }
         
