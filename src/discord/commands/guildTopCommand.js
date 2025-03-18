@@ -22,7 +22,7 @@ module.exports = {
         message = message.toString();
         cachedMessages.push(message);
 
-        if (message.startsWith("10.") && message.endsWith("Guild Experience")) {
+        if (message.startsWith("1.") && message.endsWith("Guild Experience")) {
           bot.removeListener("message", listener);
           resolve(cachedMessages);
         }
