@@ -6,6 +6,7 @@ const { SuccessEmbed } = require("../../contracts/embedHandler.js");
 module.exports = {
     name: "setrank",
     description: "Set the rank of a player in the guild.",
+    adminOnly: true,
     options: [
       {
         name: "username",

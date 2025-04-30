@@ -3,7 +3,7 @@ const { SuccessEmbed } = require("../../contracts/embedHandler.js");
 module.exports = {
   name: "kick",
   description: "Kick the given user from the Guild.",
-  moderatorOnly: true,
+  adminOnly: true,
   requiresBot: true,
   options: [
     {

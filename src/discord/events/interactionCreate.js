@@ -31,7 +31,11 @@ module.exports = {
         }
 
         if (command.moderatorOnly === true && isModerator(interaction) === false) {
-          throw new HypixelDiscordChatBridgeError("You don't have permission to use this command.");
+          throw new HypixelDiscordChatBridgeError("You don't have permission to use this command. (Bot Perms Required)");
+        }
+
+        if (command.adminOnly === true && isAdmin(interaction) === false) {
+          throw new HypixelDiscordChatBridgeError("You don't have permission to use this command. (Bot Manager Required)");
         }
 
         if (command.requiresBot === true && isBotOnline() === false) {
@@ -79,13 +83,27 @@ function isBotOnline() {
   return true;
 }
 
-function isModerator(interaction) {
+function isAdmin(interaction) {
   const user = interaction.member;
   const userRoles = user.roles.cache.map((role) => role.id);
 
   if (
     config.discord.commands.checkPerms === true &&
     !(userRoles.includes(config.discord.commands.commandRole) || config.discord.commands.users.includes(user.id))
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
+function isModerator(interaction) {
+  const user = interaction.member;
+  const userRoles = user.roles.cache.map((role) => role.id);
+
+  if (
+    config.discord.commands.checkPerms === true &&
+    !(userRoles.includes(config.discord.commands.moderatorRole))
   ) {
     return false;
   }

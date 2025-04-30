@@ -5,7 +5,7 @@ const { EmbedBuilder } = require("discord.js");
 module.exports = {
   name: "force-update-all",
   description: "Update a user's roles",
-  moderatorOnly: true,
+  adminOnly: true,
   verificationCommand: true,
 
   execute: async (interaction, doNotRespond = false) => {
