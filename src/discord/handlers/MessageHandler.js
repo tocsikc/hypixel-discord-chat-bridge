@@ -152,7 +152,7 @@ class MessageHandler {
 
     // Replace IP Adresses with [Content Redacted]
     const IPAddressPattern = /(?:\d{1,3}\s*\s\s*){3}\d{1,3}/g;
-    output = output.replaceAll(IPAddressPattern, "[Content Redacted]");
+    output = output.replaceAll(IPAddressPattern, "[No, thank you]");
 
     return this.formatEmojis(output);
   }
