@@ -9,7 +9,7 @@ class StateHandler {
   async onReady() {
     Logger.discordMessage("Client ready, logged in as " + this.discord.client.user.tag);
     this.discord.client.user.setPresence({
-      activities: [{ name: `Stalkering I am.`, type: "WATCHING" }],
+      activities: [{ name: `Stalkering I am.`, type: "3" }],
     });
 
     const channel = await this.getChannel("Guild");
