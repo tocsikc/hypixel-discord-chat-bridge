@@ -26,21 +26,20 @@ class checkCommand extends minecraftCommand {
 
       const hypixel_level = player.level;
       const rank = player.rank;
-      const { level, finalKDRatio, wins } = player.stats.bedwars;
+      const { level, finalKDRatio, wins } = player.stats?.bedwars;
       
-      if ( (hypixel_level >= 75 && (wins >= 500 || (finalKDRatio * finalKDRatio * level) >= 500)) || (wins >= 500 && (finalKDRatio * finalKDRatio * level) >= 500) ) {
-        var check = "is allowed"
+      // if ( (hypixel_level >= 75 && (wins >= 500 || (finalKDRatio * finalKDRatio * level) >= 500)) || (wins >= 500 && (finalKDRatio * finalKDRatio * level) >= 500) ) {
+      //   var check = "is allowed"
       
-      } else if ( (finalKDRatio * finalKDRatio * level) >= 3000 ) {
-        var check = "is allowed if alt"
-      } else {
-        var check = "is not allowed"
-      }
+      // } else if ( (finalKDRatio * finalKDRatio * level) >= 3000 ) {
+      //   var check = "is allowed if alt"
+      // } else {
+      //   var check = "is not allowed"
+      // }
 
       this.send(
-            `/gc [${rank}] ${player.nickname} ${check}. Level: ${Math.floor(hypixel_level)} | [${level}✫] FKDR: ${finalKDRatio} W: ${formatNumber(
-                wins,
-            )} I: ${formatNumber(finalKDRatio * finalKDRatio * level)}`,
+            `/gc [${rank}] ${player.nickname} Level: ${Math.floor(hypixel_level)} | [${level}✫] FKDR: ${finalKDRatio} W: ${formatNumber(
+                wins)}`,
           );
       
     } catch (error) {

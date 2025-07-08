@@ -48,7 +48,7 @@ class MinecraftManager extends CommunicationBridge {
   }
 
   async onBroadcast({ channel, username, message, replyingTo, discord }) {
-    Logger.broadcastMessage(`${username = username.split("|")[1]}: ${message}`, "Minecraft");
+    Logger.broadcastMessage(`${username}: ${message}`, "Minecraft");
     if (this.bot.player === undefined) {
       return;
     }
